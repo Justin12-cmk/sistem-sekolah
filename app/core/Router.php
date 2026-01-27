@@ -1,5 +1,7 @@
 <?php
-namespace App\Core;
+namespace App\Core\StudentsController;
+
+use StudentController;
  
 class Router
 {
@@ -10,10 +12,16 @@ class Router
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
        
         if ($method == 'GET' && $uri == '/Students') {
-            echo '<h1> Daftar Siswa </h1>';
-            echo '<p> Menampilkan daftar siswa</p>';
+            require_once '/App/Controllers/StudentsController.php';
+           $controller = new StudentsController();
             return;
         }
+                if ($method == 'GET' && $uri == '/Students/create') {
+require_once '/App/Controllers/StudentsController.php';
+           $controller = new StudentsController();
+            return;
+        }
+        
  
         http_response_code(404);
         echo '<h1>404 - Page Not Found</h1>';

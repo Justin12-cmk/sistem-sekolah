@@ -3,10 +3,8 @@
 require_once './App/Core/Router.php';
 use App\Core\Router;
 
-$router =  new Router();
+$Router =  new Router();
 
-$router->run();
-
-
+$Router->run();
 
 ?>
